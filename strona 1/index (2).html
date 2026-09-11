@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje zadania</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #1e293b;
+            width: 100%;
+            max-width: 550px;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            border: 1px solid #334155;
+        }
+
+        header {
+            border-bottom: 1px solid #334155;
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 6px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .task-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            background-color: #0f172a;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            font-weight: 500;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Efekt najechania myszką */
+        .task-item:hover {
+            background-color: #1e293b;
+            color: #38bdf8;
+            border-color: #38bdf8;
+            transform: translateX(4px);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+        }
+
+        /* Efekt po zaznaczeniu (wybraniu) zadania */
+        .task-item.selected {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff;
+            border-color: #38bdf8;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+            transform: translateX(0);
+        }
+
+        .task-item::before {
+            content: '•';
+            margin-right: 12px;
+            color: #64748b;
+            font-size: 1.2rem;
+            transition: color 0.25s;
+        }
+
+        .task-item:hover::before {
+            color: #38bdf8;
+        }
+
+        .task-item.selected::before {
+            content: '✓';
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>💻 Moje zadania</h1>
+            <p class="subtitle">Strona z zadaniami z lekcji</p>
+        </header>
+
+       <main>
+    <h2>📚 Lista zadań</h2>
+    <ul class="task-list">
+        <li><a class="task-item" href="zadania/zadanie1.html">Zadanie 1</a></li>
+        <li><a class="task-item" href="zadania/zadanie2.html">Zadanie 2</a></li>
+        <li><a class="task-item" href="zadania/zadanie3.html">Zadanie 3</a></li>
+        <li><a class="task-item" href="zadania/zadanie4.html">Zadanie 4</a></li>
+        <li><a class="task-item" href="zadania/zadanie5.html">Zadanie 5</a></li>
+        <li><a class="task-item" href="zadania/zadanie6.html">Zadanie 6</a></li>
+        <li><a class="task-item" href="zadania/zadanie7.html">Zadanie 7</a></li>
+        <li><a class="task-item" href="zadania/zadanie8.html">Zadanie 8</a></li>
+        <li><a class="task-item" href="zadania/zadanie9.html">Zadanie 9</a></li>
+    </ul>
+</main>
+    </div>
+
+    <script>
+        function selectTask(element) {
+            // Usuwa podświetlenie ze wszystkich elementów
+            document.querySelectorAll('.task-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            // Dodaje podświetlenie do klikniętego elementu
+            element.classList.add('selected');
+        }
+    </script>
+
+</body>
+</html>
