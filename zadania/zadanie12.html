@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main>
+        <section class="box">
+            <h2>Zadanie 2 - Moja ulubiona liczba</h2>
+            <div style="background: #1e1e1e; color: #d4d4d4; padding: 20px; font-family: monospace; border-radius: 6px; margin: 20px 0;">
+                <p style="margin-bottom: 10px;">Podaj swoja ulubiona liczbe:</p>
+                <input type="number" id="liczba" placeholder="Wpisz liczbę..." style="padding: 6px; background: #2d2d2d; color: white; border: 1px solid #555; border-radius: 4px;">
+                <button onclick="pokazLiczbe()" style="padding: 6px 14px; background: #0e639c; color: white; border: none; border-radius: 4px; cursor: pointer; margin-left: 5px;">Zatwierdź</button>
+                <p id="wynik" style="margin-top: 15px; font-weight: bold; color: #4ec9b0;"></p>
+            </div>
+            <script>
+                function pokazLiczbe() {
+                    let l = document.getElementById('liczba').value;
+                    if(l !== "") {
+                        document.getElementById('wynik').innerText = "Twoja ulubiona liczba to: " + l;
+                    }
+                }
+            </script>
+            <p><a href="../index.html">← Powrót do strony głównej</a></p>
+        </section>
+    </main>
+</body>
+</html>

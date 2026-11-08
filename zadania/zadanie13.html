@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main>
+        <section class="box">
+            <h2>Zadanie 3 - Dwie liczby</h2>
+            <div style="background: #1e1e1e; color: #d4d4d4; padding: 20px; font-family: monospace; border-radius: 6px; margin: 20px 0;">
+                <p style="margin-bottom: 10px;">Podaj pierwszą liczbę (a):</p>
+                <input type="number" id="liczbaA" placeholder="Liczba a..." style="padding: 6px; background: #2d2d2d; color: white; border: 1px solid #555; border-radius: 4px; margin-bottom: 10px; display: block;">
+                <p style="margin-bottom: 10px;">Podaj drugą liczbę (b):</p>
+                <input type="number" id="liczbaB" placeholder="Liczba b..." style="padding: 6px; background: #2d2d2d; color: white; border: 1px solid #555; border-radius: 4px; margin-bottom: 10px; display: block;">
+                <button onclick="pokazDwie()" style="padding: 6px 14px; background: #0e639c; color: white; border: none; border-radius: 4px; cursor: pointer;">Zatwierdź</button>
+                <p id="wynik" style="margin-top: 15px; font-weight: bold; color: #4ec9b0; white-space: pre-line;"></p>
+            </div>
+            <script>
+                function pokazDwie() {
+                    let a = document.getElementById('liczbaA').value;
+                    let b = document.getElementById('liczbaB').value;
+                    if(a !== "" && b !== "") {
+                        document.getElementById('wynik').innerText = "Wprowadzone liczby:\n" + a + "\n" + b;
+                    }
+                }
+            </script>
+            <p><a href="../index.html">← Powrót do strony głównej</a></p>
+        </section>
+    </main>
+</body>
+</html>
