@@ -8,8 +8,27 @@
 <body>
     <main>
         <section class="box">
-            <h2>Zadanie 10</h2>
-            <script src="https://gist.github.com/szulka/40e11e7489430b0411d5501ef2e747fc.js"></script>
+            <h2>Typy zmiennych C++</h2>
+            
+            <!-- Działający terminal symulujący program -->
+            <div style="background: #1e1e1e; color: #d4d4d4; padding: 20px; font-family: monospace; border-radius: 6px; margin: 20px 0;">
+                <p style="margin-bottom: 10px;">Ile masz lat?</p>
+                <input type="number" id="wiek" placeholder="Wpisz wiek..." style="padding: 6px; background: #2d2d2d; color: white; border: 1px solid #555; border-radius: 4px;">
+                <button onclick="pokazWiek()" style="padding: 6px 14px; background: #0e639c; color: white; border: none; border-radius: 4px; cursor: pointer; margin-left: 5px;">Zatwierdź</button>
+                <p id="komunikat" style="margin-top: 15px; font-weight: bold; color: #4ec9b0;"></p>
+            </div>
+
+            <script>
+                function pokazWiek() {
+                    let w = document.getElementById('wiek').value;
+                    if (w) {
+                        document.getElementById('komunikat').innerText = "Wprowadzony wiek: " + w;
+                    } else {
+                        document.getElementById('komunikat').innerText = "Proszę wpisać wiek!";
+                    }
+                }
+            </script>
+
             <p><a href="../index.html">← Powrót do strony głównej</a></p>
         </section>
     </main>
