@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Przykład 30.3 - Operacje bitowe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #111;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 650px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+            background-color: #2d2d2d;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0055b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 4px;
+            display: none;
+            line-height: 1.8;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="card">
+        
+        <label for="liczbaA">Wartość a:</label>
+        <input type="number" id="liczbaA" value="36">
+
+        <label for="liczbaB">Wartość b:</label>
+        <input type="number" id="liczbaB" value="55">
+
+        <button onclick="oblicz()">Uruchom program</button>
+
+        <div id="wynik" class="result"></div>
+    </div>
+
+    <script>
+        function oblicz() {
+            let a = parseInt(document.getElementById("liczbaA").value);
+            let b = parseInt(document.getElementById("liczbaB").value);
+            let wynikDiv = document.getElementById("wynik");
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Proszę wpisać poprawne liczby całkowite!");
+                return;
+            }
+
+            let iloczyn_bitowy = a & b;
+            let suma_bitowa = a | b;
+            let roznica_symetryczna = a ^ b;
+            let przesuniecie_lewo = a << 2;
+            let przesuniecie_prawo = a >> 2;
+
+            let output = a + " & " + b + " wynosi " + iloczyn_bitowy + "<br>" +
+                         a + " | " + b + " wynosi " + suma_bitowa + "<br>" +
+                         a + " ^ " + b + " wynosi " + roznica_symetryczna + "<br>" +
+                         a + " << 2 wynosi " + przesuniecie_lewo + "<br>" +
+                         a + " >> 2 wynosi " + przesuniecie_prawo;
+
+            wynikDiv.style.display = "block";
+            wynikDiv.innerHTML = output;
+        }
+    </script>
+
+    <br>
+    <a href="../index.html" class="back-link">← Powrót do strony głównej</a>
+
+</body>
+</html>
