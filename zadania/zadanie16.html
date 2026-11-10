@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Przykład 30.1 - Operacje arytmetyczne</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #111;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+            background-color: #2d2d2d;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0055b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 4px;
+            display: none;
+            line-height: 1.8;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Przykład 30.1 - Operacje arytmetyczne</h1>
+
+    <div class="card">
+    
+        <label for="liczba1">Pierwsza liczba:</label>
+        <input type="number" id="liczba1" value="7">
+
+        <label for="liczba2">Druga liczba:</label>
+        <input type="number" id="liczba2" value="5">
+
+        <button onclick="oblicz()">Oblicz</button>
+
+        <div id="wynik" class="result"></div>
+    </div>
+
+    <script>
+        function oblicz() {
+            let a = parseFloat(document.getElementById("liczba1").value);
+            let b = parseFloat(document.getElementById("liczba2").value);
+            let wynikDiv = document.getElementById("wynik");
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Proszę wpisać poprawne liczby!");
+                return;
+            }
+
+            let suma = a + b;
+            let roznica = a - b;
+            let iloczyn = a * b;
+            let iloraz = b !== 0 ? (a / b) : "Nie można dzielić przez zero";
+            let modulo = b !== 0 ? Math.trunc(a) % Math.trunc(b) : "Błąd";
+
+            wynikDiv.style.display = "block";
+            wynikDiv.innerHTML = "Suma liczb " + a + " i " + b + " wynosi: " + suma + "<br>" +
+                                 "Różnica liczb " + a + " i " + b + " wynosi: " + roznica + "<br>" +
+                                 "Iloczyn liczb " + a + " i " + b + " wynosi: " + iloczyn + "<br>" +
+                                 "Iloraz liczb " + a + " i " + b + " wynosi: " + iloraz + "<br>" +
+                                 "Reszta z dzielenia " + a + " przez " + b + " wynosi: " + modulo;
+        }
+    </script>
+
+    <br>
+    <a href="../index.html" class="back-link">← Powrót do strony głównej</a>
+
+</body>
+</html>
