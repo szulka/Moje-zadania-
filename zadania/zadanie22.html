@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Przykład 31.5 - Równanie kwadratowe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #111;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 650px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+            background-color: #2d2d2d;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0055b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 4px;
+            display: none;
+            line-height: 1.8;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        
+        <label for="a">Podaj współczynnik a:</label>
+        <input type="number" id="a" step="any" placeholder="np. 1">
+
+        <label for="b">Podaj współczynnik b:</label>
+        <input type="number" id="b" step="any" placeholder="np. -3">
+
+        <label for="c">Podaj współczynnik c:</label>
+        <input type="number" id="c" step="any" placeholder="np. 2">
+
+        <button onclick="obliczRownanie()">Rozwiąź równanie</button>
+
+        <div id="wynik" class="result"></div>
+    </div>
+
+    <script>
+        function obliczRownanie() {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+            let wynikDiv = document.getElementById("wynik");
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Proszę uzupełnić wszystkie współczynniki!");
+                return;
+            }
+
+            wynikDiv.style.display = "block";
+            let output = "Rozwiązywanie równania ax²+bx+c=0<br>";
+
+            // Odpowiednik kodu z C++ ze zdjęć
+            if (a === 0) {
+                if (b === 0) {
+                    output += c === 0 ? "Równanie tożsamościowe (nieskończoność rozwiązań)." : "Równanie sprzeczne (brak rozwiązań).";
+                } else {
+                    let x = -c / b;
+                    output += "Równanie jest liniowe i ma jedno rozwiązanie: x = " + x;
+                }
+            } else {
+                let delta = (b * b) - (4 * a * c);
+                output += "Delta (Δ) = " + delta + "<br>";
+
+                if (delta < 0) {
+                    output += "Równanie nie ma rozwiązań w liczbach rzeczywistych.";
+                } else if (delta === 0) {
+                    let x = -b / (2 * a);
+                    output += "Równanie ma jedno rozwiązanie: x = " + x;
+                } else {
+                    let x1 = (-b - Math.sqrt(delta)) / (2 * a);
+                    let x2 = (-b + Math.sqrt(delta)) / (2 * a);
+                    output += "Równanie ma dwa rozwiązania:<br>x1 = " + x1 + "<br>x2 = " + x2;
+                }
+            }
+
+            wynikDiv.innerHTML = output;
+        }
+    </script>
+
+    <br>
+    <a href="../index.html" class="back-link">← Powrót do strony głównej</a>
+
+</body>
+</html>
