@@ -1,21 +1,61 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>Zadanie 14 - Moje kieszonkowe</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        pre { background-color: #f4f4f4; padding: 15px; border-radius: 5px; border: 1px solid #ddd; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #111;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
     <h1>Zadanie 1. Moje kieszonkowe (łatwe)</h1>
-    <p>Napisz program w języku C++, który pobierze od użytkownika informacje dotyczące jego kieszonkowego[cite: 1].</p>
 
-    <h2>Kod programu (z Code::Blocks):</h2>
-    <pre><code>
-#include &lt;iostream&gt;
+    <div class="card">
+        <p>Napisz program w języku C++, który pobierze od użytkownika informacje dotyczące jego kieszonkowego[cite: 1].</p>
+        
+        <h3>Kod programu (C++):</h3>
+        <pre><code>#include &lt;iostream&gt;
 
 using namespace std;
 
@@ -34,8 +74,10 @@ int main() {
     cout &lt;&lt; "Twoje kieszonkowe: " &lt;&lt; kieszonkowe &lt;&lt; " zl" &lt;&lt; endl;
 
     return 0;
-}
-    </code></pre>
+}</code></pre>
+    </div>
+
+    <a href="../index.html" class="back-link">← Powrót do strony głównej</a>
 
 </body>
 </html>
