@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 14 - Moje kieszonkowe</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        pre { background-color: #f4f4f4; padding: 15px; border-radius: 5px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+    <h1>Zadanie 1. Moje kieszonkowe (łatwe)</h1>
+    <p>Napisz program w języku C++, który pobierze od użytkownika informacje dotyczące jego kieszonkowego[cite: 1].</p>
+
+    <h2>Kod programu (z Code::Blocks):</h2>
+    <pre><code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+float kieszonkowe;
+
+int main() {
+    int wiek;
+
+    cout &lt;&lt; "Ile masz lat? ";
+    cin &gt;&gt; wiek;
+
+    cout &lt;&lt; "Ile kieszonkowego otrzymujesz miesiecznie? ";
+    cin &gt;&gt; kieszonkowe;
+
+    cout &lt;&lt; "\nTwój wiek: " &lt;&lt; wiek &lt;&lt; " lat" &lt;&lt; endl;
+    cout &lt;&lt; "Twoje kieszonkowe: " &lt;&lt; kieszonkowe &lt;&lt; " zl" &lt;&lt; endl;
+
+    return 0;
+}
+    </code></pre>
+
+</body>
+</html>
