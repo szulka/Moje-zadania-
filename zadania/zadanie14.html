@@ -1,8 +1,8 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Zadanie 14 - Moje kieszonkowe</title>
+    <title>Zadanie 1 - Moje kieszonkowe</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,16 +24,41 @@
         }
         p {
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-        pre {
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
             background-color: #2d2d2d;
-            color: #dcdcdc;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0055b3;
+        }
+        .result {
+            margin-top: 20px;
             padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-family: Consolas, monospace;
-            font-size: 14px;
+            background-color: #2d2d2d;
+            border-radius: 4px;
+            display: none;
         }
         .back-link {
             display: inline-block;
@@ -54,29 +79,34 @@
     <div class="card">
         <p>Napisz program w języku C++, który pobierze od użytkownika informacje dotyczące jego kieszonkowego[cite: 1].</p>
         
-        <h3>Kod programu (C++):</h3>
-        <pre><code>#include &lt;iostream&gt;
+        <label for="wiek">Ile masz lat?</label>
+        <input type="number" id="wiek" placeholder="Liczba lat...">
 
-using namespace std;
+        <label for="kieszonkowe">Ile kieszonkowego otrzymujesz miesięcznie?</label>
+        <input type="number" id="kieszonkowe" placeholder="Kwota...">
 
-float kieszonkowe;
+        <button onclick="oblicz()">Zatwierdź</button>
 
-int main() {
-    int wiek;
-
-    cout &lt;&lt; "Ile masz lat? ";
-    cin &gt;&gt; wiek;
-
-    cout &lt;&lt; "Ile kieszonkowego otrzymujesz miesiecznie? ";
-    cin &gt;&gt; kieszonkowe;
-
-    cout &lt;&lt; "\nTwój wiek: " &lt;&lt; wiek &lt;&lt; " lat" &lt;&lt; endl;
-    cout &lt;&lt; "Twoje kieszonkowe: " &lt;&lt; kieszonkowe &lt;&lt; " zl" &lt;&lt; endl;
-
-    return 0;
-}</code></pre>
+        <div id="wynik" class="result"></div>
     </div>
 
+    <script>
+        function oblicz() {
+            let wiek = document.getElementById("wiek").value;
+            let kieszonkowe = document.getElementById("kieszonkowe").value;
+            let wynikDiv = document.getElementById("wynik");
+
+            if (wiek === "" || kieszonkowe === "") {
+                alert("Proszę uzupełnić oba pola!");
+                return;
+            }
+
+            wynikDiv.style.display = "block";
+            wynikDiv.innerHTML = "Twój wiek: " + wiek + " lat<br>Twoje kieszonkowe: " + kieszonkowe + " zl";
+        }
+    </script>
+
+    <br>
     <a href="../index.html" class="back-link">← Powrót do strony głównej</a>
 
 </body>
