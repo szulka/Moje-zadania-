@@ -81,6 +81,7 @@
     <!-- Zadanie 1 -->
     <div class="card">
         <h3>Zadanie 1</h3>
+        <p>Napisz program, który wczyta trzy liczby: <strong>a, b, c</strong> i obliczy wartość wyrażenia: <strong>(a + 2*b) / 4 + c²</strong></p>
         
         <label for="z1_a">Podaj liczbę a:</label>
         <input type="number" id="z1_a" step="any" placeholder="np. 4">
@@ -99,6 +100,7 @@
     <!-- Zadanie 2 -->
     <div class="card">
         <h3>Zadanie 2</h3>
+        <p>Napisz program, który poprosi o podanie dwóch liczb całkowitych <strong>x</strong> oraz <strong>y</strong>. Wykonaj dzielenie <strong>x / y</strong> i wyświetl wynik.</p>
         
         <label for="z2_x">Podaj liczbę całkowitą x:</label>
         <input type="number" id="z2_x" placeholder="np. 7">
@@ -131,7 +133,6 @@
             wynikDiv.innerHTML = "Wynik wyrażenia wynosi: <strong>" + wynik + "</strong>";
         }
 
-      
         function obliczZadanie2() {
             let x = parseInt(document.getElementById("z2_x").value);
             let y = parseInt(document.getElementById("z2_y").value);
@@ -150,8 +151,8 @@
             let wynikDzielenia = x / y;
 
             wynikDiv.style.display = "block";
-            wynikDiv.innerHTML = "Wynik dzielenia x / y wynosi: <strong>" + wynikDzielenia + "</strong><br>" ;
-                                 
+            wynikDiv.innerHTML = "Wynik dzielenia x / y wynosi: <strong>" + wynikDzielenia + "</strong>";
+        }
     </script>
 
 </body>
