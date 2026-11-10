@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprawdź swoje umiejętności</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #111;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 650px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+            background-color: #2d2d2d;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0055b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 4px;
+            display: none;
+            line-height: 1.8;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sprawdź swoje umiejętności</h1>
+
+    <!-- Zadanie 1 -->
+    <div class="card">
+        <h3>Zadanie 1</h3>
+        <p>Napisz program, który wczyta trzy liczby: <strong>a, b, c</strong> i obliczy wartość wyrażenia: <strong>(a + 2*b) / 4 + c²</strong></p>
+        
+        <label for="z1_a">Podaj liczbę a:</label>
+        <input type="number" id="z1_a" step="any" placeholder="np. 4">
+
+        <label for="z1_b">Podaj liczbę b:</label>
+        <input type="number" id="z1_b" step="any" placeholder="np. 3">
+
+        <label for="z1_c">Podaj liczbę c:</label>
+        <input type="number" id="z1_c" step="any" placeholder="np. 2">
+
+        <button onclick="obliczZadanie1()">Oblicz wyrażenie</button>
+
+        <div id="wynik1" class="result"></div>
+    </div>
+
+    <!-- Zadanie 2 -->
+    <div class="card">
+        <h3>Zadanie 2</h3>
+        
+        <label for="z2_x">Podaj liczbę całkowitą x:</label>
+        <input type="number" id="z2_x" placeholder="np. 7">
+
+        <label for="z2_y">Podaj liczbę całkowitą y:</label>
+        <input type="number" id="z2_y" placeholder="np. 2">
+
+        <button onclick="obliczZadanie2()">Oblicz dzielenie</button>
+
+        <div id="wynik2" class="result"></div>
+    </div>
+
+    <a href="../index.html" class="back-link">← Powrót do strony głównej</a>
+
+    <script>
+        function obliczZadanie1() {
+            let a = parseFloat(document.getElementById("z1_a").value);
+            let b = parseFloat(document.getElementById("z1_b").value);
+            let c = parseFloat(document.getElementById("z1_c").value);
+            let wynikDiv = document.getElementById("wynik1");
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Proszę uzupełnić wszystkie pola w Zadaniu 1!");
+                return;
+            }
+
+            let wynik = ((a + 2 * b) / 4) + (c * c);
+
+            wynikDiv.style.display = "block";
+            wynikDiv.innerHTML = "Wynik wyrażenia wynosi: <strong>" + wynik + "</strong>";
+        }
+
+      
+        function obliczZadanie2() {
+            let x = parseInt(document.getElementById("z2_x").value);
+            let y = parseInt(document.getElementById("z2_y").value);
+            let wynikDiv = document.getElementById("wynik2");
+
+            if (isNaN(x) || isNaN(y)) {
+                alert("Proszę uzupełnić oba pola w Zadaniu 2!");
+                return;
+            }
+
+            if (y === 0) {
+                alert("Nie można dzielić przez zero!");
+                return;
+            }
+
+            let wynikDzielenia = x / y;
+
+            wynikDiv.style.display = "block";
+            wynikDiv.innerHTML = "Wynik dzielenia x / y wynosi: <strong>" + wynikDzielenia + "</strong><br>" +
+                                 "(Uwaga do dyskusji: Ponieważ x i y są całkowite, w C++ dzielenie całkowite dałoby wynik całkowity z obcięciem części ułamkowej, chyba że jawnie zmieniono typ na zmiennoprzecinkowy).";
+        }
+    </script>
+
+</body>
+</html>
